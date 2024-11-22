@@ -1,0 +1,26 @@
+{
+  "name": "find-on-files-with-regexp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Gabriel-Malenowitch/find-on-files-with-regexp.git",
+  "author": "Gabriel-Malenowitch",
+  "scripts": {
+    "allInOne": "concurrently \"yarn run watch:ts\" \"yarn run coffee2js\" \"nodemon dist/index.js\"",
+    "watch:node": "nodemon dist/index.js",
+    "background": "concurrently \"yarn run watch:ts\" \"yarn run coffee2js\"",
+    "coffee2js": "nodemon --watch src/*.coffee --exec 'decaffeinate src/'",
+    "watch:ts": "npx tsc --watch"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.9.1",
+    "concurrently": "^9.1.0",
+    "decaffeinate": "^8.1.4",
+    "nodemon": "^3.1.7",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}
